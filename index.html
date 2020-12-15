@@ -1,0 +1,40 @@
+<html>
+<head>
+  <meta charset="utf-8"/>
+</head>
+<body>
+  <canvas id="c1"></canvas><canvas id="c2"></canvas>
+  <script id="vs" type="x-shader/x-vertex">
+    attribute vec2 aPosition;
+    attribute vec2 aTexCoord;
+
+    varying vec2 vTexCoord;
+
+    uniform vec2 uResolution;
+
+    void main() {
+      vec2 position = aPosition / uResolution;
+
+      position = position * 2.0;
+      position = position - 1.0;
+      position = position * vec2(1, -1);
+
+      gl_Position = vec4(position, 0, 1);
+
+      vTexCoord = aTexCoord;
+    }
+  </script>
+  <script id="fs" type="x-shader/x-fragment">
+    precision mediump float;
+
+    uniform sampler2D uImage;
+    varying vec2 vTexCoord;
+
+    void main() {
+      gl_FragColor = texture2D(uImage, vTexCoord);
+    }
+  </script>
+
+  <script src="./index.js"></script>
+</body>
+</html>
