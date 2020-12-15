@@ -164,7 +164,7 @@ function main() {
 
   document.body.appendChild(video);
   // image.crossOrigin = "anonymous";
-  video.src = "http://127.0.0.1:8887/rotated180.mp4";
+  video.src = "https://shachlan.github.io/SampleSite/rotated180.mp4";
   video.currentTime = 3;
 
   video.onloadeddata = async () => {
@@ -185,7 +185,7 @@ function main() {
   document.body.appendChild(image);
 
   image.crossOrigin = "anonymous";
-  image.src = "http://127.0.0.1:8887/shula.jpg";
+  image.src = "https://shachlan.github.io/SampleSite/shula.jpg";
 
   image.onload = async () => {
     //image = await createImageBitmap(image)
